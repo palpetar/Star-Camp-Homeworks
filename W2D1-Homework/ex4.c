@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#define TRUE 1
-#define FALSE 0
-
 
 void filter_and_map(const int arr[], size_t n, int (*filter_f)(int), int (*map_f)(int), int dest[], size_t* dest_cnt);
 
@@ -19,15 +16,15 @@ int isEven(int a){
 }
 
 int isPrime(int num){
-    if(num <= 1) return FALSE;
-    if(num == 2 || num == 3) return TRUE;
+    if(num <= 1) return 0;
+    if(num == 2 || num == 3) return 1;
 
     for(int i = 2; i <= sqrt(num);i++){
         if(num % i == 0){
-            return FALSE;
+            return 0;
         }
     }
-    return TRUE;
+    return 1;
 }
 
 int isPositive(int a){
