@@ -47,13 +47,6 @@ int checkBits(uint32_t* maskArr, size_t len, size_t bit_index){
 
 }
 
-void print_binary_number(uint32_t num) {
-    for (int i = 31; i >= 0; i--) {
-        printf("%d", (num >> i) & 1);
-    }
-    printf("\n");
-}
-
 void print_binary_array(uint32_t *arr, size_t nitems) {
     for (size_t i = 0; i < nitems; i++) {
         printf("arr[%ld]: ", i);
