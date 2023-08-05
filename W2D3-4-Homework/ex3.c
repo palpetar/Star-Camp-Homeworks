@@ -71,7 +71,7 @@ int main(void){
     {0.0, 5.5, 2.2},
     {7.3, 8.9, 1.0},
     {3.6, 4.1, 6.9}
-    };
+    };  
     Point *max = findMax(arr, sizeof(arr)/sizeof(Point), sizeof(Point), cmpDist);
     printf("Point with biggest distance: x: %.2lf, y: %.2lf, z: %.2lf", max -> x, max -> y, max -> z);
  */
