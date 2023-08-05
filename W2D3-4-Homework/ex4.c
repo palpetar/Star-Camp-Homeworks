@@ -72,30 +72,26 @@ int main(void) {
 
     size_t nitems = sizeof(arr) / sizeof(arr[0]);
 
-    // Test clearBits function
     printf("Before clearBits:\n");
     print_binary_array(arr, nitems);
 
-    size_t bit_index_to_clear = 4; // For example, clearing bit at index 4
+    size_t bit_index_to_clear = 4;
 
     clearBits(arr, nitems, bit_index_to_clear);
 
     printf("After clearBits:\n");
     print_binary_array(arr, nitems);
 
-    // Test setBits function
     printf("Before setBits:\n");
     print_binary_array(arr, nitems);
 
-    size_t bit_index_to_set = 8; // For example, setting bit at index 8
+    size_t bit_index_to_set = 8; 
 
     setBits(arr, nitems, bit_index_to_set);
 
     printf("After setBits:\n");
     print_binary_array(arr, nitems);
-
-    // Test checkBits function
-    size_t bit_index_to_check = 9; // For example, checking bit at index 8
+    size_t bit_index_to_check = 9;
 
     int result = checkBits(arr, nitems, bit_index_to_check);
 
