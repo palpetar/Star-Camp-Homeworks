@@ -1,13 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
 
 void* findMax(void *arr, size_t n, size_t elem_s, int (*cmp)(const void*, const void*)){
 
     void *result = arr;
 
-    for(int i = 1; i < n; i++){
+    for(size_t i = 1; i < n; i++){
         if(cmp(result, arr) == 1){
             result = arr;
         }
