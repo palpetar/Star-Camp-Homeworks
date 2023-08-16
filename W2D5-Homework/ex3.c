@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <inttypes.h>
+#include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #define ID_LEN 10
@@ -14,7 +15,7 @@ typedef struct Person{
     char gender;
 } Person;
 
-srand = (time(NULL));
+
 
 void* init_array(size_t capacity){
     Person *arr = malloc(sizeof(Person) * capacity);
@@ -23,9 +24,9 @@ void* init_array(size_t capacity){
 
 int addPerson(Person *arr, char *name, unsigned short birthYear, unsigned char birthDay, char gender){
     
-    Person p_to_add = malloc(sizeof(Person));
-    p_to_add = { name, "TdDDsfAAst", birthYear, (rand()%12 + 1), birthDay, gender};
-    arr++ = &p_to_add;
+    Person *p_to_add = malloc(sizeof(Person));
+    *p_to_add = { name, "TdDDsfAAst", birthYear, (rand()%12 + 1), birthDay, gender};
+    arr++ = p_to_add;
     return 0;
 }
 
@@ -51,19 +52,31 @@ void readPerson(Person *arr){
 int printPerson(Person *arr, char *id){
     while(arr){
         if(strcmp(arr -> id, id) == 0){
-            printf("Name: %s\n", person->name);
-            printf("ID: %s\n", person->id);
-            printf("Birth Date: %hu-%hhu-%hhu\n", person->birthDay, person->birthMonth, person->birthYear);
-            printf("Gender: %c\n", person->gender);
+            printf("Name: %s\n", arr->name);
+            printf("ID: %s\n", arr->id);
+            printf("Birth Date: %hu-%hhu-%hhu\n", arr->birthDay, arr->birthMonth, arr->birthYear);
+            printf("Gender: %c\n", arr->gender);
             return 0;
         }
+        arr++;
     }
+    printf("Person with id[%s] could not be found", id);
     return -1;
 }
 
 int main(void){
+    srand(time(NULL));
+    Person *arr = init_array(5);
 
-    
+    addPerson(arr, "John Doe", 1990, 15, 'M');
+
+    printPerson(arr, "TdDDsfAAst");
+
+    removePerson(arr, "TdDDsfAAst");
+
+    printPerson(arr, "TdDDsfAAst");
+
+    free(arr);
 
     return 0;
 }
