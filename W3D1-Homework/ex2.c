@@ -43,6 +43,7 @@ void print_elems(Stack s) {
 }
 
 int result_reverse_polish_notation(char *input){
+    
     Stack s = init_stack(strlen(input));
 
     char *token = strtok((char *)input, " ");
@@ -74,7 +75,12 @@ int result_reverse_polish_notation(char *input){
 int main(void){
 
     char input[100];
-    scanf("%s", input);
+    fgets(input, sizeof(input), stdin);
+
+    size_t len = strlen(input);
+    if (len > 0 && input[len - 1] == '\n') {
+        input[len - 1] = '\0';
+    }
 
     int result = result_reverse_polish_notation(input);
     printf("Result: %d\n", result);
